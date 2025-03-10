@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= movie.Title %> - Rancid Tomatoes</title>
+    <link href="movie.css" type="text/css" rel="stylesheet">
+</head>
+
+
+
+<body>
+    <header>
+        <img src="/banner.png" alt="Rancid Tomatoes">
+    </header>
+
+    <h1><%= movie.Title %> (<%= movie.Year %>)</h1>
+
+    <div class="main-content">
+        <div class="content-wrapper">
+
+            <div class="reviews-container">
+
+                <div class="fresh-top">
+                    <img src="/<%= freshStatus %>" alt="Freshness Rating">
+                    <span><%= movie.Score %>%</span>
+                </div>
+    
+
+                <!-- Column 1 -->
+                <div class="review-column">
+                    <% for (let i = 0; i < reviews.length; i += 2) { %>
+                    <div>
+                        <p class="review">
+                            <img src="/<%= reviews[i].ReviewText ? 'fresh.gif' : 'rotten.gif' %>" alt="Review Rating">
+                            <q><%= reviews[i].ReviewText %></q>
+                        </p>
+                        <p class="author">
+                            <img src="/critic.gif" alt="Critic">
+                            <%= reviews[i].ReviewerName %> <br>
+                            <%= reviews[i].Affiliation %>
+                        </p>
+                    </div>
+                    <% } %>
+                </div>
+    
+
+                <!-- Column 2 -->
+                <div class="review-column">
+                    <% for (let i = 1; i < reviews.length; i += 2) { %>
+                    <div>
+                        <p class="review">
+                            <img src="/<%= reviews[i].ReviewText ? 'fresh.gif' : 'rotten.gif' %>" alt="Review Rating">
+                            <q><%= reviews[i].ReviewText %></q>
+                        </p>
+                        <p class="author">
+                            <img src="/critic.gif" alt="Critic">
+                            <%= reviews[i].ReviewerName %> <br>
+                            <%= reviews[i].Affiliation %>
+                        </p>
+                    </div>
+                    <% } %>
+                </div>
+            </div>
+    
+
+    
+            <div id="general-overview">
+                <img class="overview-image" src="/<%= movie.FilmCode %>/<%= posterFilename %>" alt="Movie Poster">
+                
+                <dl>
+                    <!-- Loop through attributes in database -->
+                    <% orderedMovieDetails.forEach(detail => { %>
+                        <dt><%= detail.key.toUpperCase() %></dt>
+                        <dd><%= detail.value %></dd>
+                    <% }); %>
+            
+                    <!-- Show Links only if they exist -->
+                    <% if (movieLinks.length > 0) { %>  
+                        <dt>Links</dt>
+                        <dd>
+                            <ul class="links">
+                                <% movieLinks.forEach(link => { %>
+                                    <li><a href="<%= link.url %>" target="_blank"><%= link.name %></a></li>
+                                <% }); %>
+                            </ul>
+                        </dd>
+                    <% } %>
+                </dl>
+            </div>        
+        </div>
+
+        
+    
+        <footer id="footer">
+            (1 - <%= reviews.length %>) of <%= reviews.length %>
+        </footer>
+    
+    </div>
+
+</body>
+</html>

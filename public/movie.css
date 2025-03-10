@@ -1,0 +1,235 @@
+/* ================================================================================================ */
+/* ====================================== Base Styles ============================================= */
+
+
+/* Body */
+body {
+  background-image: url('background.png');
+  width: 100%;
+  margin: auto;
+  display: block;
+  min-width: 320px;
+  font-family: Tahoma, Arial, sans-serif;
+  font-size: 1.0rem;
+}
+
+
+/* Header */
+header {
+  background: url("bannerbg.png") repeat-x;
+  height: 4rem;
+  text-align: center;
+}
+
+
+/* Page Title */
+h1 {
+  font-family: Verdana, Calibri, sans-serif;
+  font-weight: bold;
+  font-size: 3rem;
+  text-shadow: 2px 2px #999999;
+  text-align: center;
+}
+
+
+/* ================================================================================================ */
+/* ===================================== Main Content ============================================= */
+
+
+/* Main Content Container */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  width: 90%;
+  margin: 0 auto;
+  border: 4px solid grey;
+  border-radius: 40px;
+  box-sizing: border-box;
+  margin-bottom: 4rem;
+  min-height: 100vh;
+}
+
+
+/* Wrapper */
+.content-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-grow: 1;
+  background-color: inherit;
+}
+
+
+/* ================================================================================================ */
+/* ========================================= Reviews ============================================== */
+
+
+/* Fresh Top Section */
+.fresh-top {
+  background-image: url('rbg.png');
+  background-repeat: repeat-x;
+  height: 90px;
+  display: flex;
+  width: 100%;
+  flex-basis: 100%;
+  order: -1;
+}
+
+
+.fresh-top img {
+  height: 83px;
+}
+
+
+.fresh-top span {
+  font-size: 4rem;
+  font-weight: bold;
+  color: red;
+}
+
+
+/* Reviews Container */
+.reviews-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-grow: 1;
+}
+
+
+.review-column {
+  width: 40%;
+}
+
+
+/* Reviews Headers and Content */
+.review {
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #E3DAA3;
+  border: 2px solid gray;
+  border-radius: 20px;
+  padding: 8px;
+  margin: 0;
+}
+
+
+.review img {
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+
+.author {
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+
+.author img {
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+
+/* ================================================================================================ */
+/* =================================== General Overview =========================================== */
+
+
+/* General Overview */
+#general-overview {
+  background-color: #5D8B3E;
+  max-width: 400px;
+  min-width: 300px;
+  font-family: Calibri, sans-serif;
+  color: #F1F1E4DA;
+  box-sizing: border-box;
+  flex: 1;
+  align-self: stretch;
+}
+
+
+#general-overview dl {
+  padding: 1.5rem;
+}
+
+
+/* Property Titles */
+#general-overview dt {
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-top: 0.9rem;
+}
+
+
+/* Links */
+#general-overview .links {
+  color: darkblue;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+#general-overview .links li {
+  margin: 0;
+  padding: 0;
+}
+
+
+.overview-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  max-width: 400px;
+}
+
+
+/* ================================================================================================ */
+/* ============================================= Footer =========================================== */
+
+
+#footer {
+  display: flex;
+  justify-content: center;
+  background-color: #5D8B3E;
+  width: 100%;
+  z-index: 1;
+  color: white;
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  margin-top: auto;
+}
+
+
+/* ================================================================================================ */
+/* ==================================== Mobile Adjustment ========================================= */
+
+
+/* Mobile Styles for viewports 786px or less */
+@media screen and (max-width: 786px) {
+  /* Make the General Overview appear at the top */
+  #general-overview {
+    float: none;           
+    width: 90%;            
+    margin: 1rem auto;     
+  }
+
+  /* Adjust the Reviews Container to stack columns vertically */
+  .reviews-container {
+    display: block;        
+    width: 90%;            
+    margin: 1rem auto;     
+  }
+
+  /* Each review column takes full width of the reviews container */
+  .review-column {
+    width: 100%;           
+    margin-bottom: 1rem;   
+  }
+}
